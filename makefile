@@ -17,11 +17,11 @@ NORM=$(shell tput sgr0)
 ifeq ($(CONTAINER_NAME),)
 shell: .build
 	$(info $(BOLD)Starting $(TOOLCHAIN_NAME)...$(NORM))
-	docker run -it --rm -v "$(WORKSPACE_DIR)":/root/workspace $(TOOLCHAIN_NAME) /bin/bash
+	docker run -it --rm -e DISPLAY=docker.for.mac.host.internal:0 -v "$(WORKSPACE_DIR)":/root/workspace $(TOOLCHAIN_NAME) /bin/bash
 else
 shell:
 	$(info $(BOLD)Connecting to running $(TOOLCHAIN_NAME)...$(NORM))
-	docker exec -it $(CONTAINER_NAME) /bin/bash  
+	docker exec -it -e DISPLAY=docker.for.mac.host.internal:0 $(TOOLCHAIN_NAME) /bin/bash
 endif
 
 clean:
