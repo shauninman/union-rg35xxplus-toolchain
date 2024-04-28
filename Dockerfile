@@ -46,7 +46,7 @@ RUN export LIBGL_ALWAYS_INDIRECT=1
 RUN mkdir -p /root/workspace
 WORKDIR /root
 
-COPY test ./test
+COPY test ./workspace/test
 COPY support .
 RUN ./build-toolchain.sh
 RUN cat ./setup-env.sh >> .bashrc

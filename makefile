@@ -21,7 +21,7 @@ shell: .build
 else
 shell:
 	$(info $(BOLD)Connecting to running $(TOOLCHAIN_NAME)...$(NORM))
-	docker exec -it -e DISPLAY=docker.for.mac.host.internal:0 $(TOOLCHAIN_NAME) /bin/bash
+	docker exec -it -e DISPLAY=docker.for.mac.host.internal:0 $(CONTAINER_NAME) /bin/bash
 endif
 
 clean:
