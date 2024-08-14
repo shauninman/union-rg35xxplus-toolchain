@@ -34,6 +34,7 @@ WORKDIR /root
 
 COPY support .
 RUN ./build-toolchain.sh
+RUN ./add-sysroot.sh
 RUN cat ./setup-env.sh >> .bashrc
 
 VOLUME /root/workspace
