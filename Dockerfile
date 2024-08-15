@@ -6,6 +6,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get -y update && apt-get -y install \
 	bc \
+	bison \
     build-essential \
     bzip2 \
 	bzr \
@@ -13,6 +14,7 @@ RUN apt-get -y update && apt-get -y install \
 	cmake-curses-gui \
 	cpio \
 	device-tree-compiler \
+	flex \
 	git \
 	imagemagick \
 	libncurses5-dev \
