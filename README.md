@@ -2,7 +2,27 @@
 
 Based on the [Trimui toolchain Docker image](https://git.crowdedwood.com/trimui-toolchain/) by neonloop.
 
-## Installation
+## Installation with GUI
+
+![Test application running](support/app_test.png)
+
+### NOTE: Only tested in macOS 14
+If you need a GUI for your application and you want to test it, you can:
+- Install XQuartz
+- In a terminal, `cd` into the root of this directory and run `./before-run.sh`
+- Open a XQuartz shell with: `open -a XQuartz`
+- Once inside the XQuartz shell `cd` into the root of this directory and run `make shell`
+
+I included a simple application that displays "Hello, world" on screen with the MinUI font. To run the application:
+```bash
+cd test
+make
+./build/main
+```
+If any error occurs a file named `error_log.txt` will be created to show any errors occurred.
+
+
+## Normal Installation 
 
 With Docker installed and running, `make shell` builds the toolchain and drops into a shell inside the container. The container's `~/workspace` is bound to `./workspace` by default. The toolchain is located at `/opt/` inside the container.
 

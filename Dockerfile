@@ -31,9 +31,24 @@ RUN apt-get -y update && apt-get -y install \
 	zip \
   && rm -rf /var/lib/apt/lists/*
 
+RUN dpkg --add-architecture armhf
+RUN apt -y update
+RUN apt-get -y update 
+RUN apt -y install libc6:armhf
+
+RUN apt-get -y install libsdl2-dev
+RUN apt-get -y install libsdl2-dev:armhf
+
+RUN apt-get -y install libsdl2-ttf-dev
+RUN apt-get -y install libsdl2-dev:armhf
+RUN apt-get -y install libsdl2-ttf-dev:armhf
+
+RUN export LIBGL_ALWAYS_INDIRECT=1
+
 RUN mkdir -p /root/workspace
 WORKDIR /root
 
+COPY test ./workspace/test
 COPY support .
 RUN ./build-toolchain.sh
 RUN ./add-sysroot.sh
